@@ -31,7 +31,7 @@ fi
 
 # If the user entered arguments contain upgrade, install, or dist-upgrade
 if echo "$@" | grep -q "upgrade\|install\|dist-upgrade"; then
-  echo "Working...";
+  echo "PAITTE SATTOKIN JOLO DAH...";
 
   # Go into the directory apt-get normally puts downloaded packages
   cd /var/cache/apt/archives/;
@@ -39,7 +39,7 @@ if echo "$@" | grep -q "upgrade\|install\|dist-upgrade"; then
   # Have apt-get print the information, including the URI's to the packages
   # Strip out the URI's, and download the packages with Axel for speediness
   # I found this regex elsewhere, showing how to manually strip package URI's you may need...thanks to whoever wrote it
-  apt-get -y --print-uris $@ | egrep -o -e "(ht|f)tp://[^\']+" > apt-fast.list && cat apt-fast.list | xargs -l1 axel -a
+  apt-get -y --print-uris $@ | egrep -o -e "(ht|f)tp://[^\']+" > apt-fast.list && cat apt-fast.list | xargs -l1 axel -n 11 -a
 
   # Perform the user's requested action via apt-get
   apt-get $@;
